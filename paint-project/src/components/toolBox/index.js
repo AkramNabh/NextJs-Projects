@@ -3,8 +3,6 @@ import styles from "./index.module.css";
 import { COLORS, MENU_ITEMS } from "@/constants/Contstants";
 import { changeColor, changeBrushSize } from "@/slice/toolboxSlice";
 import cx from "classnames";
-import { colors } from "@material-ui/core";
-
 const ToolBox = () => {
   const dispatch = useDispatch();
   const activeMenuItem = useSelector((state) => state.menu.activeMenuItem);

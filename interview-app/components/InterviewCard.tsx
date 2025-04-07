@@ -6,17 +6,17 @@ import { Button } from './ui/button'
 import Link from 'next/link'
 
 const InterviewCard = ({
-    interviewID,
+    interviewId,
     // userID,
     role,
     type,
     //techstack,
-    createdAT,
+    createdAt,
 }: InterviewCardProps) => {
     const feedback = null as Feedback | null
     const normalizedType = /mix/gi.test(type) ? 'Mixed' : type
     const formattedDate = dayjs(
-        feedback?.createdAt || createdAT || Date.now()
+        feedback?.createdAt || createdAt || Date.now()
     ).format('MMM D, YYYY')
 
     return (
@@ -66,8 +66,8 @@ const InterviewCard = ({
                         <Link
                             href={
                                 feedback
-                                    ? `/interview/${interviewID}/feedback`
-                                    : `/interview/${interviewID}`
+                                    ? `/interview/${interviewId}/feedback`
+                                    : `/interview/${interviewId}`
                             }
                         >
                             {feedback ? 'Check feedback' : 'View interview'}

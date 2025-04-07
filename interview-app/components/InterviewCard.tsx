@@ -4,13 +4,13 @@ import Image from 'next/image'
 import { getRandomInterviewCover } from '@/lib/utils'
 import { Button } from './ui/button'
 import Link from 'next/link'
-import DisplayTechIcons from './DisplayTechIcons'
+
 const InterviewCard = ({
     interviewID,
-    userID,
+    // userID,
     role,
     type,
-    techstack,
+    //techstack,
     createdAT,
 }: InterviewCardProps) => {
     const feedback = null as Feedback | null

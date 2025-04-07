@@ -22,15 +22,23 @@ export async function signUp(params: SignUpParams) {
                 message: 'Account created successfully',
             }
         }
-    } catch (e: any) {
-        console.error('error creating a user', e)
+    } catch (e: unknown) {
+        if (e instanceof Error) {
+            console.error('error creating a user', e.message)
+        } else {
+            console.error('error creating a user', e)
+        }
 
-        if (e.code === 'auth/email-already-exists') {
-            return {
-                success: false,
-                message: 'this email is already in use',
+        if (typeof e === 'object' && e !== null && 'code' in e) {
+            const errorCode = (e as { code: string }).code
+            if (errorCode === 'auth/email-already-exists') {
+                return {
+                    success: false,
+                    message: 'this email is already in use',
+                }
             }
         }
+
         return {
             success: false,
             message: 'failed to create an account',

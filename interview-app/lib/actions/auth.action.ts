@@ -1,6 +1,7 @@
 'use server'
 
 import { auth, db } from '@/Firebase/admin'
+
 import { cookies } from 'next/headers'
 
 export async function signUp(params: SignUpParams) {
